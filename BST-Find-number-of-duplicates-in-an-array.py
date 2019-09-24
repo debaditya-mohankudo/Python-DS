@@ -52,9 +52,18 @@ class BSTNode:
         print(node.data, node.counter)
         if node.right is  not None:
             self.__print_tree(node.right)
-  
+
+a = [1, 3, 5, 11, 13, 40, 15, 2, 5, 3]
 bst_Tree = BST()
 for item in a:
     bst_Tree.insert(item)
 bst_Tree.print_tree()
+1 1
+2 1
+3 2
+5 2
+11 1
+13 1
+15 1
+40 1
     
