@@ -5,30 +5,36 @@ that is if we start with Happy Number and keep replacing it with digits square s
 """
 
 
-def is_happy(int_tc, res = None):
+
+def is_happy(int_tc, sum_squares=None, res = None):
     if res is None:
         res = []
-    if len(res) > len(set(res)):
-        return False # same series ll continue
-    sum_square = sum([digit ** 2 for digit in get_all_digits(int_tc)])
+    if sum_squares is None:
+        sum_squares = int_tc
+    sum_squares = sum([digit ** 2 for digit in get_all_digits(sum_squares)])
 
-    if sum_square == 1:
+    if sum_squares == 1:
         return True
+    
+    if sum_squares in res:
+        return False # same series continues infinitely
     else:
-        res.append(sum_square)
-        return is_happy(sum_square, res)
+        res.append(sum_squares)
+        return is_happy(int_tc, sum_squares, res)
     
 def find_next_happy(int_tc):
+    int_tc += 1
     if is_happy(int_tc):
         return int_tc
     else:
-        return find_next_happy(int_tc + 1)
+        return find_next_happy(int_tc)
 
 def get_all_digits(number):
     """gets all the digits from the number right to left"""
     while(number > 0):
         yield int(number % 10)
         number = (number - number % 10) / 10
+
 
 find_next_happy(6)
 >>> 7
