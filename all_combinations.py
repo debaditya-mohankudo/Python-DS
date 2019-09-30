@@ -28,12 +28,12 @@ def all_combinations(str_S, word='', res_L=None):
 
     if len(str_S) == 1:#base case
         res_L.append(word + str_S)
-        return
+        #return str_S no need to return here, tail recursion -> incremental output part of input
 
     else: #recursive case
         for i, char in enumerate(str_S):
             all_combinations(remainingChar(str_S, i), word + char, res_L)
-        return res_L
+    return res_L
 
 all_combinations('abc')
 >>> ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
