@@ -17,7 +17,7 @@ def all_combinations(str_S):
                 res_L.append(char + combi)
         return res_L
 
-def all_combinations(str_S):
+def all_combinations(str_S): #base case
     if len(str_S) <= 1:
         return str_S
     return [char + combinations for i, char in enumerate(str_S) for combinations in all_combinations(remainingChar(str_S, i))]
