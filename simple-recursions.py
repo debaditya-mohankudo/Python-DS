@@ -9,7 +9,7 @@ def is_pal(str_S):
             return False
 ###########################################
 def dec_to_binary(number):
-    if number == 1 or number == 0:
+    if number < 2:
         return str(number)
     else:
         reminder = number % 2
