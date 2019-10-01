@@ -8,3 +8,12 @@ def is_pal(str_S):
         else:
             return False
 ###########################################
+#decimal to binary
+def dec_to_binary(number):
+    if number == 1 or number == 0:
+        return number
+    else:
+        reminder = number % 2
+        remaining = number // 2
+        return str(dec_to_binary(remaining)) + str(reminder)
+############################################################
