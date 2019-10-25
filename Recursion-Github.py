@@ -229,8 +229,15 @@ dec_to_binary(11)
 dec_to_binary(16)
 
 
-# In[ ]:
-
-
+# given size generate all the numbers in increasing order of digits
+def inc_num(size, start_num=1 ):
+    res_L = []
+    if size == 1:
+        return range(start_num, 10)
+    for digit in range(start_num, 10 - size +1):
+        next_increasing_digits = inc_num(size-1, digit+1)
+        for remaining in next_increasing_digits:
+            res_L.append(digit * pow(10, size-1) + remaining)
+    return res_L
 
 
